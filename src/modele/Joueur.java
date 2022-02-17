@@ -151,6 +151,7 @@ public class Joueur extends Objet {
 	public void affiche(String etat, int etape) {
 		URL perso = getClass().getClassLoader().getResource(Global.persoEmplacement+numPerso+etat+etape+"d"+orientation+".gif");
 		this.jLabel.setIcon(new ImageIcon(perso));
+		this.pseudoLbl.setText(pseudo +" : "+this.vie);
 		jeuServeur.envoieJeuATous();
 	}
 
@@ -240,6 +241,8 @@ public class Joueur extends Objet {
 		if(this.vie>Joueur.MAXVIE) {
 			this.vie = Joueur.MAXVIE;
 		}
+		this.pseudoLbl.setText(pseudo +" : "+this.vie);
+		jeuServeur.envoieJeuATous();
 	}
 	
 	/**
